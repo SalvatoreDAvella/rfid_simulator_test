@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rfid_tag">
+	<xacro:property name="r" value="0.02" />
+	<xacro:property name="h" value="0.02" />
+
+	<xacro:macro name="rfid_tag" params="name_idx ">
+
+		<link name="rfid_tag${name_idx}">
+			<visual>
+			<geometry>
+				<cylinder length="${h}" radius="${r}"/>
+			</geometry>
+			<material name="black">
+				<color rgba="0.038 0.038 0.038 1.0"/>
+			</material>
+			</visual>
+			<inertial>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<mass value="0.05"/>
+				<inertia ixx="0.001"  ixy="0"  ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+			</inertial>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<cylinder length="${h}" radius="${r}"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<gazebo reference="rfid_tag${name_idx}">
+			<material>Gazebo/Black</material>
+			<static>true</static>
+			<turnGravityOff>true</turnGravityOff>
+			<dampingFactor>0.005</dampingFactor>
+			<kp>1000000</kp>
+			<kd>1.0</kd>
+			<mu1>100.0</mu1>
+			<mu2>100.0</mu2>
+			<minDepth>0.001</minDepth>
+			<sensor name="rfid_tag${name_idx}" type="rfidtag">
+				<plugin name="antennaPlugin" filename="libgazeboRfidTagPlugin.so"/>
+				<update_rate>15</update_rate>
+				<visualize>true</visualize>
+			</sensor>
+		</gazebo>
+	</xacro:macro>
+</robot>

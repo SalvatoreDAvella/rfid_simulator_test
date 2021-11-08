@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rfid_tag">
+	<xacro:include filename="$(find rfid_simulator_test)/urdf/tag/tag_macro.xacro" />
+
+	<xacro:rfid_tag name_idx=""/>
+
+</robot>

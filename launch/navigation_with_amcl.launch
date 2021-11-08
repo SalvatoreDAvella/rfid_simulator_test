@@ -1,0 +1,31 @@
+<launch>
+	<include file="$(find rfid_simulator_test)/launch/simulation.launch"/>
+
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find rfid_simulator_test)/config/map.yaml">
+		<param name="frame_id" value="map"/>
+	</node>
+
+	<node pkg="amcl" type="amcl" name="amcl" >
+		<rosparam file="$(find rfid_simulator_test)/config/amcl/amcl.yaml" command="load"  />
+		<remap from="scan" to="laserscan" />
+	</node>
+
+	<node pkg="move_base" type="move_base" name="Pioneer3AT_move_base">
+		<rosparam file="$(find rfid_simulator_test)/config/move_base/move_base.yaml" command="load"/>
+		<rosparam file="$(find rfid_simulator_test)/config/move_base/costmap_common.yaml" command="load" ns="global_costmap" />
+		<rosparam file="$(find rfid_simulator_test)/config/move_base/costmap_common.yaml" command="load" ns="local_costmap" />
+		<rosparam file="$(find rfid_simulator_test)/config/move_base/costmap_global.yaml" command="load"  />
+		<rosparam file="$(find rfid_simulator_test)/config/move_base/costmap_local.yaml" command="load"/>
+		
+		<remap from="cmd_vel"               to="/cmd_vel"  />
+		<remap from="move_base/cancel"      to="/move_base/cancel"   />
+		<remap from="move_base/feedback"    to="/move_base/feedback" />
+		<remap from="move_base/goal"        to="/move_base/goal" />
+		<remap from="move_base/result"      to="/move_base/result" />
+		<remap from="move_base/status"      to="/move_base/status" />
+		<remap from="move_base_simple/goal" to="/move_base_simple/goal" />
+	</node>
+
+	<node pkg="rviz" type="rviz" name="Pioneer3AT_rviz" args="-d $(find rfid_simulator_test)/config/rviz/settings.rviz"/>
+
+</launch>

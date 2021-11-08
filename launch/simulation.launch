@@ -1,0 +1,55 @@
+<launch>
+	<include file="$(find rfid_simulator_test)/launch/pioneer3atRFID.launch"/>
+
+	<param name="tag_rfid" command="$(find xacro)/xacro '$(find rfid_simulator_test)/urdf/tag/tag.urdf.xacro'"/>
+
+	<node name="spawn_gazebo_object1" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag1 -x 2.90 -y 0.57 -z 2.05" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag1_to_map" args="2.90 0.57 2.05 0 0 0 1 map tag1 100" />
+
+	<node name="spawn_gazebo_object2" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag2 -x 2.90 -y -1.24 -z 2.05" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag2_to_map" args="2.90 -1.24 2.05 0 0 0 1 map tag2 100" />
+
+	<node name="spawn_gazebo_object3" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag3 -x 2.90 -y -3.03 -z 2.05" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag3_to_map" args="2.90 -3.03 2.05 0 0 0 1 map tag3 100" />
+
+	<node name="spawn_gazebo_object4" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag4 -x 2.90 -y -4.82 -z 2.05" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag4_to_map" args="2.90 -4.82 2.05 0 0 0 1 map tag4 100" />
+
+	<node name="spawn_gazebo_object5" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag5 -x 2.90 -y -6.75 -z 2.05" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag5_to_map" args="2.90 -6.75 2.05 0 0 0 1 map tag5 100" />
+
+	<node name="spawn_gazebo_object6" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag6 -x 2.90 -y -8.66 -z 2.05" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag6_to_map" args="2.90 -8.66 2.05 0 0 0 1 map tag6 100" />
+
+	<node name="spawn_gazebo_object7" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag7 -x -4.85 -y -7.70 -z 1.85" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag7_to_map" args="-4.85 -7.70 1.85 0 0 0 1 map tag7 100" />
+
+	<node name="spawn_gazebo_object8" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag8 -x -4.85 -y -3.03 -z 1.85" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag8_to_map" args="-4.85 -3.03 1.85 0 0 0 1 map tag8 100" />
+
+	<node name="spawn_gazebo_object9" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag9 -x -4.85 -y 1.44 -z 1.85" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag9_to_map" args="-4.85 1.44 1.85 0 0 0 1 map tag9 100" />
+
+	<node name="spawn_gazebo_object10" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param tag_rfid -model tag10 -x -4.85 -y 5.95 -z 1.85" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="tag10_to_map" args="-4.85 5.95 1.85 0 0 0 1 map tag10 100" />
+
+	<!-- uncomment this to add a new fixed reader antenna -->
+	<!--
+	<param name="antenna_rfid" command="$(find xacro)/xacro '$(find rfid_simulator_test)/urdf/antenna/antenna.urdf.xacro' name_idx:=_fixed"/>
+
+	<node name="spawn_gazebo_fixed_antenna" pkg="gazebo_ros" type="spawn_model"
+		args="-urdf -param antenna_rfid -model antenna_fixed -x 3.5 -y -4.0 -z 2.0" respawn="false" output="screen" />
+	<node pkg="tf" type="static_transform_publisher" name="antenna_fixed_to_map" args="3.5 -4.0 2.0 0 0 0 1 map antenna_fixed 100" />
+	-->
+
+</launch>

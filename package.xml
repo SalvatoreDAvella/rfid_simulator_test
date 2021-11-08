@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rfid_simulator_test</name>
+  <version>0.0.0</version>
+  <description>Package to test the functionalities of the RFID Gazebo plugin</description>
+  <author email="salvatore.davella@santannapisa.it">Salvatore D'Avella</author>
+  <maintainer email="salvatore.davella@santannapisa.it">Salvatore D'Avella</maintainer>
+
+  <license>GNU GPL</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>rfid_sensor</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_export_depend>gazebo_ros</build_export_depend>
+  <build_export_depend>geometry_msgs</build_export_depend>
+  <build_export_depend>rfid_sensor</build_export_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>rfid_sensor</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+
+</package>

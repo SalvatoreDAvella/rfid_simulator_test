@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rfid_antenna">
+	<xacro:include filename="$(find rfid_simulator_test)/urdf/antenna/antenna_macro.xacro" />
+
+	<xacro:rfid_antenna name_idx="$(arg name_idx)"/>
+
+	<gazebo reference="rfidantenna">
+		<material>Gazebo/White</material>
+		<static>true</static>
+		<turnGravityOff>true</turnGravityOff>
+		<dampingFactor>0.005</dampingFactor>
+		<kp>1000000</kp>
+		<kd>1.0</kd>
+		<mu1>100.0</mu1>
+		<mu2>100.0</mu2>
+		<sensor name="antenna$(arg name_idx)" type="rfid">
+			<plugin name="antennaPlugin" filename="libgazeboRfidAntennaPlugin.so">
+				<frequency>865700000</frequency>
+				<noisephi>0.1</noisephi>
+				<range>7</range>
+				<noiserssi>0.001</noiserssi>
+				<communication_gain>250</communication_gain>
+			</plugin>
+			<always_on>1</always_on>
+			<update_rate>15</update_rate>
+			<visualize>true</visualize>
+		</sensor>
+	</gazebo>
+</robot>
