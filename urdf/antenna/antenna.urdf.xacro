@@ -17,9 +17,11 @@
 			<plugin name="antennaPlugin" filename="libgazeboRfidAntennaPlugin.so">
 				<frequency>865700000</frequency>
 				<noisephi>0.1</noisephi>
+				<noiserssi>0.008</noiserssi>
+				<optional_distribution>none</optional_distribution>
+				<optional_distribution_params>0.0 0.0</optional_distribution_params>
 				<range>7</range>
-				<noiserssi>0.001</noiserssi>
-				<communication_gain>250</communication_gain>
+				<communication_gain>1</communication_gain>	
 			</plugin>
 			<always_on>1</always_on>
 			<update_rate>15</update_rate>

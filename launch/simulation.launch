@@ -42,14 +42,14 @@
 	<node name="spawn_gazebo_object10" pkg="gazebo_ros" type="spawn_model"
 		args="-urdf -param tag_rfid -model tag10 -x -4.85 -y 5.95 -z 1.85" respawn="false" output="screen" />
 	<node pkg="tf" type="static_transform_publisher" name="tag10_to_map" args="-4.85 5.95 1.85 0 0 0 1 map tag10 100" />
-
+	
 	<!-- uncomment this to add a new fixed reader antenna -->
-	<!--
+	
 	<param name="antenna_rfid" command="$(find xacro)/xacro '$(find rfid_simulator_test)/urdf/antenna/antenna.urdf.xacro' name_idx:=_fixed"/>
 
 	<node name="spawn_gazebo_fixed_antenna" pkg="gazebo_ros" type="spawn_model"
 		args="-urdf -param antenna_rfid -model antenna_fixed -x 3.5 -y -4.0 -z 2.0" respawn="false" output="screen" />
 	<node pkg="tf" type="static_transform_publisher" name="antenna_fixed_to_map" args="3.5 -4.0 2.0 0 0 0 1 map antenna_fixed 100" />
-	-->
+	
 
 </launch>

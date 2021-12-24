@@ -93,7 +93,7 @@
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
 		</inertial>
-	</link>
+	</link>	
 
 	<joint name="rfidantenna_joint" type="prismatic">
 		<limit lower="0.0" upper="1.0"  effort="100.0" velocity="0.1" />
@@ -108,9 +108,11 @@
 			<plugin name="antennaPlugin" filename="libgazeboRfidAntennaPlugin.so">
 				<frequency>865700000</frequency>
 				<noisephi>0.1</noisephi>
-				<noiserssi>0.001</noiserssi>
+				<noiserssi>0.01</noiserssi>
+				<optional_distribution>none</optional_distribution>
+				<optional_distribution_params>0.0 0.0</optional_distribution_params>
 				<range>7</range>
-				<communication_gain>250</communication_gain>
+				<communication_gain>3</communication_gain>
 			</plugin>
 			<always_on>1</always_on>
 			<update_rate>15</update_rate>
