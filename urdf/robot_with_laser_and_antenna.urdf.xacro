@@ -120,7 +120,8 @@
 		</sensor>
 	</gazebo>
 
-	<!-- uncomment this to make the robot reader antenna move -->
+	<!-- uncomment this to make the## License
+Distributed under the GNU License. See LICENSE for more information. robot reader antenna move -->
 	<!--
 	<gazebo>
 		<plugin name="move_antenna" filename="libmove_antenna.so">

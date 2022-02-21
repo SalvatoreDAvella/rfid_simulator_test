@@ -49,5 +49,22 @@ Substitute ``/topic1 /topic2`` with the name of the topic advertised by your ant
 When you decide to end the simulation, a csv file will be generated in your ROS HOME for each of the topic name having several rows containing ``time``, ``posx``, ``posy``, ``posz``, ``q1``, ``q2``, ``q3``, ``q4``, ``name``, ``dist``, ``phase``, ``rssi``, where ``time`` is the time of the acquisition, the other seven data are the position and orientation (quaternion) of the reader antenna, ``name`` is the ID of the RFID tag, ``dist`` is the ground truth distance between the reader and the tag, ``phase`` and ``rssi`` are the phase and RSSI signals.
 By reading such csv file you can use your preferred tag localization method.
 
+## Citing
+
+If you use this tool in a research project, please cite as follows:
+```
+@article{davella2022RFID,
+  title={RFID Gazebo based simulator with RSSI and Phase signals for UHF tags localization and tracking.},
+  author={D'Avella, Salvatore and Unetti, Matteo and Tripicchio, Paolo},
+  journal={IEEE Access},
+  volume={0},
+  pages={0-0},
+  year={2022},
+  publisher={IEEE},
+  doi = {https://doi.org/10.1109/ACCESS.2022.3152199},
+  issn = "2169-3536"
+}
+```
+
 ## License
 Distributed under the GNU License. See LICENSE for more information.
